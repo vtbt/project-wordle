@@ -1,15 +1,17 @@
 import React from 'react';
 
 function GuessInput({ handleSubmitNewGuess, isDisabled }) {
-  const [inputValue, setInputValue] = React.useState('');
+  const [guess, setGuess] = React.useState('');
+
   const handleChange = (event) => {
-    const { value } = event.target;
-    setInputValue(value.toUpperCase());
+    const nextGuess = event.target.value.toUpperCase();
+    setGuess(nextGuess);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    handleSubmitNewGuess(inputValue);
-    setInputValue('');
+    handleSubmitNewGuess(guess);
+    setGuess('');
   };
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
@@ -18,10 +20,11 @@ function GuessInput({ handleSubmitNewGuess, isDisabled }) {
         id="guess-input"
         type="text"
         required
-        pattern="^[A-Z]{5}$"
-        // minLength="5"
-        // maxLength="5"
-        value={inputValue}
+        minLength={5}
+        maxLength={5}
+        pattern="[a-zA-Z]{5}"
+        title="5 letter word"
+        value={guess}
         onChange={handleChange}
         disabled={isDisabled}
       />
