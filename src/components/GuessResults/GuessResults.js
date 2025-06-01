@@ -3,7 +3,7 @@ import Guess from '../Guess/Guess';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import { range } from '../../utils';
 
-function GuessResults({ guesses }) {
+function GuessResults({ guesses, answer }) {
   console.log('Rendering GuessResults with guesses:', guesses);
   const displayedGuesses = [
     ...guesses,
@@ -15,7 +15,7 @@ function GuessResults({ guesses }) {
   return (
     <div className="guess-results">
       {displayedGuesses.map(({ id, guess }) => (
-        <Guess key={id} guess={guess} />
+        <Guess key={id} guess={guess} answer={answer} />
       ))}
     </div>
   );

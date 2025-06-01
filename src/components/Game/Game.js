@@ -21,7 +21,10 @@ function Game() {
 
   return (
     <>
-      <GuessResults guesses={guesses.slice(0, NUM_OF_GUESSES_ALLOWED)} />
+      <GuessResults
+        guesses={guesses.slice(0, NUM_OF_GUESSES_ALLOWED)}
+        answer={answer}
+      />
       <GuessInput handleSubmitNewGuess={handleSubmitNewGuess} />
     </>
   );
