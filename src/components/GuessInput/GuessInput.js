@@ -8,7 +8,6 @@ function GuessInput({ handleSubmitNewGuess }) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted with input's value", inputValue);
     handleSubmitNewGuess(inputValue);
     setInputValue('');
   };
