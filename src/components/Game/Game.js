@@ -16,10 +16,13 @@ function Game() {
   const [guesses, setGuesses] = React.useState([]);
   const [correctGuesses, setCorrectGuesses] = React.useState(0);
 
-  const handleSubmitNewGuess = (guess) => {
-    const nextGuesses = [...guesses, { id: crypto.randomUUID(), guess }];
+  const handleSubmitNewGuess = (tentativeGuess) => {
+    const nextGuesses = [
+      ...guesses,
+      { id: crypto.randomUUID(), guess: tentativeGuess },
+    ];
     setGuesses(nextGuesses);
-    if (guess === answer) {
+    if (tentativeGuess === answer) {
       setCorrectGuesses(nextGuesses.length);
     }
   };
