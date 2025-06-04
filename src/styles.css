@@ -292,3 +292,18 @@ h1 {
     border-color: var(--color-warning);
     color: white;
 }
+
+.restart-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+}
+
+.restart-button.happy {
+    background-color: white;
+    color: var(--color-success)
+}
+
+.restart-button.sad {
+    background-color: white;
+    color: var(--color-error)
+}
