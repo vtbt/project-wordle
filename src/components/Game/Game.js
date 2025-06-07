@@ -34,9 +34,11 @@ function Game() {
   };
 
   const handleRestartGame = () => {
+    const newAnswer = sample(WORDS);
+
     setGameStatus('running');
     setGuesses([]);
-    setAnswer(sample(WORDS));
+    setAnswer(newAnswer);
   };
 
   const validatedGuesses = guesses.map((guess) => checkGuess(guess, answer));

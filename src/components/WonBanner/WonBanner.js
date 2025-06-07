@@ -3,7 +3,12 @@ import Banner from '../Banner';
 
 function WonBanner({ numOfGuesses, handleRestartGame }) {
   return (
-    <Banner status="happy" handleRestartGame={handleRestartGame}>
+    <Banner
+      status="happy"
+      action={handleRestartGame}
+      actionText="Restart game"
+      buttonClassName="happy-restart-button"
+    >
       <p>
         <strong>Congratulations!</strong> Got it in{' '}
         <strong>

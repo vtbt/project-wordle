@@ -280,3 +280,18 @@ h1 {
     background: var(--color-warning);
     color: white;
 }
+
+.banner-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+}
+
+.happy-restart-button {
+    background-color: white;
+    color: var(--color-success)
+}
+
+.sad-restart-button {
+    background-color: white;
+    color: var(--color-error)
+}
