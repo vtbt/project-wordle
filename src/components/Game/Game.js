@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
@@ -8,6 +8,7 @@ import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import WonBanner from '../WonBanner';
 import LostBanner from '../LostBanner';
 import GuessKeyboard from '../GuessKeyboard';
+import { checkGuess } from '../../game-helpers';
 
 // // Pick a random word on every pageload.
 // const answer = sample(WORDS);
@@ -38,14 +39,16 @@ function Game() {
     setAnswer(sample(WORDS));
   };
 
+  const validatedGuesses = guesses.map((guess) => checkGuess(guess, answer));
+
   return (
     <>
-      <GuessResults guesses={guesses} answer={answer} />
+      <GuessResults validatedGuesses={validatedGuesses} />
       <GuessInput
         handleSubmitNewGuess={handleSubmitNewGuess}
         isDisabled={gameStatus !== 'running'}
       />
-      <GuessKeyboard guesses={guesses} answer={answer} />
+      <GuessKeyboard validatedGuesses={validatedGuesses} />
       {gameStatus === 'won' && (
         <WonBanner
           numOfGuesses={guesses.length}
